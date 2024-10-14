@@ -59,6 +59,10 @@ function tokenise(source){
 			wordAccumulator += currentCharacter;
 		}
 	}
+	if(wordAccumulator){
+		words.push(wordAccumulator);
+		rownums.push(currentRowNum);
+	}
 	
 	let tokens = [];
 	//create tokens from words, watch out for string literals
@@ -110,5 +114,5 @@ function tokenise(source){
 	}
 	
 	
-	return {ok: true, value: tokens};
+	return {ok: true, value: words};
 }
